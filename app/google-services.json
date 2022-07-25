@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1039838218304",
+    "project_id": "licenta-ioana-banu",
+    "storage_bucket": "licenta-ioana-banu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039838218304:android:e469e6b9bf11246715f7a5",
+        "android_client_info": {
+          "package_name": "com.example.licenta_ioana_banu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039838218304-e3qo4d59kck277pqk046tl9tlhqv8bs9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA8Aypgr2xFpTlvgieUXD-xNhd2mlbqYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039838218304-e3qo4d59kck277pqk046tl9tlhqv8bs9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
