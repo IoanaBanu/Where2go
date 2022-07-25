@@ -140,14 +140,14 @@ public class DirectionsActivity extends AppCompatActivity {
      */
     private void getRoute(MapboxMap mapboxMap, Point origin, Point destination) {
 
-        /*client = MapboxDirections.builder()
+        client = MapboxDirections.builder()
                 .origin(origin)
                 .destination(destination)
                 .overview(DirectionsCriteria.OVERVIEW_FULL)
                 .profile(DirectionsCriteria.PROFILE_DRIVING)
                 .accessToken(getString(R.string.mapbox_access_token))
                 .build();
-*/
+
 
         client.enqueueCall(new Callback<DirectionsResponse>() {
             @Override
