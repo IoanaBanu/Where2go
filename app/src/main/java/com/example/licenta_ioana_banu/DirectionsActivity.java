@@ -147,6 +147,8 @@ public class DirectionsActivity extends AppCompatActivity {
                 .profile(DirectionsCriteria.PROFILE_DRIVING)
                 .accessToken(getString(R.string.mapbox_access_token))
                 .build();
+
+        
         client.enqueueCall(new Callback<DirectionsResponse>() {
             @Override
             public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
