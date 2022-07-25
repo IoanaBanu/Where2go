@@ -50,7 +50,7 @@ public class DirectionsActivity extends AppCompatActivity {
     private static final String RED_PIN_ICON_ID = "red-pin-icon-id";
     private MapView mapView;
     private DirectionsRoute currentRoute;
-    //private MapboxDirections client;
+    public MapboxDirections client;
     private Point origin;
     private Point destination;
 
@@ -140,7 +140,7 @@ public class DirectionsActivity extends AppCompatActivity {
      */
     private void getRoute(MapboxMap mapboxMap, Point origin, Point destination) {
 
-        MapboxDirections client = MapboxDirections.builder()
+        client = MapboxDirections.builder()
                 .origin(origin)
                 .destination(destination)
                 .overview(DirectionsCriteria.OVERVIEW_FULL)
