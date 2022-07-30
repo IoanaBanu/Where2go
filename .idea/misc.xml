@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/activity_javaservices_directions.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/activity_main.xml" value="0.21302083333333333" />
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/activity_maps.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/edit_profile_activity.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/login_activity.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/mapbox.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/register_activity.xml" value="0.378125" />
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/test.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/turn_by_turn.xml" value="0.21302083333333333" />
       </map>
     </option>
