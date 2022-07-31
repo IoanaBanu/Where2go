@@ -30,6 +30,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".PlacePicker"
+            android:label="maps"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -76,7 +85,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <service
+            android:name=".utils.FetchAddressIntentService"
+            android:exported="false" />
     </application>
 
 </manifest>

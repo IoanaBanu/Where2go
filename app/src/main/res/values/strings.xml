@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Licenta_ioana_banu</string>
-    <string name="mapbox_access_token">pk.eyJ1IjoiaW9hbmFiYW51IiwiYSI6ImNremN4MDhkcDA0czEyd3BkMHM4NDR0Ym4ifQ.LGeZqxN1fmU3SL2wHHOh8w</string>
+    <string name="API_key">AIzaSyDO72H2WTEyRIjBrF6dKdEqCYuhjtecdrE</string>
+    <string name="API_key2">AIzaSyDUpk55Zdv2563OofmvYv1sSHxucDVII_A</string>
+    <string name="service_not_available">Make sure your phone is connected to the internet</string>
+    <string name="no_address_found">No title found</string>
+    <string name="address_found"> The title was found</string>
+    <string name="not_support_area">This area is not currently supported</string>
+    <string name="confirm_location">Address confirmation</string>
+    <string name="search_place">Search for an address</string>
+    <string name="confirm_pickup">Confirm the starting point</string>
+    <string name="confirm_dest">Confirm the access point</string>
+    <string name="failed_select_location">Error locating, please try again</string>
 </resources>

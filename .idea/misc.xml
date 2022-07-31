@@ -3,11 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/drawable/cardview_shape.xml" value="0.221875" />
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/drawable/ic_pin.xml" value="0.39427083333333335" />
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/drawable/rectangle_4.xml" value="0.221875" />
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/drawable/small_button_shape.xml" value="0.22916666666666666" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/activity_javaservices_directions.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/activity_main.xml" value="0.21302083333333333" />
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/activity_map.xml" value="0.37832204273058884" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/activity_maps.xml" value="0.21302083333333333" />
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/cardview.xml" value="0.20572916666666666" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/edit_profile_activity.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/login_activity.xml" value="0.21302083333333333" />
+        <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/map_content_main.xml" value="0.378125" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/mapbox.xml" value="0.21302083333333333" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/register_activity.xml" value="0.378125" />
         <entry key="..\:/AndroidSDK/Licenta_ioana_banu/app/src/main/res/layout/test.xml" value="0.21302083333333333" />
