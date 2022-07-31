@@ -1,5 +1,8 @@
 package com.example.licenta_ioana_banu;
 
+import static com.example.licenta_ioana_banu.ListAdapter.getDest;
+import static com.example.licenta_ioana_banu.ListAdapter.getOrg;
+
 import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -31,6 +34,7 @@ import com.example.licenta_ioana_banu.utils.SimplePlacePicker;
 import com.example.licenta_ioana_banu.utils.CustomButton;
 import com.example.licenta_ioana_banu.utils.CustomTextView;
 import com.example.licenta_ioana_banu.utils.FetchAddressIntentService;
+import com.google.android.datatransport.runtime.Destination;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -95,6 +99,16 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
     ArrayList<LatLng> mMarkerPoints;
     private LatLng mOrigin;
     private LatLng mDestination;
+
+
+    public void setmOrigin(LatLng mOrigin) {
+        this.mOrigin = mOrigin;
+    }
+
+    public void setmDestination(LatLng mDestination) {
+        this.mDestination = mDestination;
+    }
+
     private Polyline mPolyline;
 
     //routes
@@ -131,7 +145,8 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
+        mOrigin= new LatLng(1,1);
+        mDestination= new LatLng(1,1);
         initViews();
         receiveIntent();
         initMapsAndPlaces();
@@ -154,6 +169,9 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
                 revealView(icPin);
             }
         }, 1000);
+
+
+
         saveRouteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,7 +180,7 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
 
                 if (mMarkerPoints.size() >= 2){
 
-                    Route route = new Route(orgName,destName,mOrigin.latitude,mOrigin.longitude, mDestination.latitude, mDestination.longitude);
+                    Route route = new Route(orgName,destName,mOrigin.longitude,mOrigin.latitude,  mDestination.longitude, mDestination.latitude);
                 // Write a message to the database
                 FirebaseDatabase database = FirebaseDatabase.getInstance("https://licenta-ioana-banu-default-rtdb.firebaseio.com/");
                 DatabaseReference myRef = database.getReference("routes");
@@ -594,6 +612,38 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if((getOrg()!=null))
+        {
+
+            mOrigin=getOrg();
+            mDestination=getDest();
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(mOrigin));
+            mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
+            MarkerOptions options = new MarkerOptions();
+            MarkerOptions options2 = new MarkerOptions();
+            // Setting the position of the marker
+            options2.position(mOrigin);
+            options.position(mDestination);
+            Log.i(TAG,"orogin :"+mOrigin.latitude);
+            Log.i(TAG,"dest :"+getDest().toString());
+            /**
+             * For the start location, the color of marker is GREEN and
+             * for the end location, the color of marker is RED.
+             */
+
+
+            options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+
+            options2.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+
+
+
+            // Add new marker to the Google Map Android API V2
+            mMap.addMarker(options);
+            mMap.addMarker(options2);
+            drawRoute();
+        }
+
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
