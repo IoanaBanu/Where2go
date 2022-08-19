@@ -56,11 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String username = userNameEdt.getText().toString();
                 String password = passwordEdt.getText().toString();
                 String passwordVer = passwordVerEdt.getText().toString();
-                ArrayList<Integer> yes=new ArrayList<Integer> ();
-                yes.add(1);
-                yes.add(0);
-                yes.add(1);
-                yes.add(0);
+               
 
 
                 if (nume.isEmpty() || prenume.isEmpty() || username.isEmpty() || password.isEmpty()) {

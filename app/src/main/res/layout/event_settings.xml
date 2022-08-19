@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:layout_marginBottom="10dp"
-        android:text="Events I partake"
+        android:text="My routes"
         android:textAppearance="@style/agora"
         app:layout_constraintBottom_toTopOf="@+id/line_95"
         app:layout_constraintEnd_toEndOf="parent"

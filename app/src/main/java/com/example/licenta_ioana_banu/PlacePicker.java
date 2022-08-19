@@ -1,5 +1,5 @@
 package com.example.licenta_ioana_banu;
-
+import static com.example.licenta_ioana_banu.LoginActivity.getCurrentUser;
 import static com.example.licenta_ioana_banu.ListAdapter.getDest;
 import static com.example.licenta_ioana_banu.ListAdapter.getOrg;
 
@@ -14,6 +14,8 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.ResultReceiver;
+
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -157,11 +159,21 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
         materialSearchBar = findViewById(R.id.searchBar);
         CustomButton submitLocationButton = findViewById(R.id.submit_location_button);
         CustomButton saveRouteButton = findViewById(R.id.save_route_button);
+        CustomButton route_list = findViewById(R.id.route_list_button);
+        CustomButton edit_profile = findViewById(R.id.edit_profile_button);
         rippleBg = findViewById(R.id.ripple_bg);
         mDisplayAddressTextView = findViewById(R.id.tv_display_marker_location);
         mProgressBar = findViewById(R.id.progress_bar);
         mSmallPinIv = findViewById(R.id.small_pin);
+        User currUser=getCurrentUser();
 
+        if(currUser.getUsername().equals("guest"))
+        {
+            route_list.setEnabled(false);
+            route_list.setBackgroundColor(Color.GRAY);
+            edit_profile.setEnabled(false);
+            edit_profile.setBackgroundColor(Color.GRAY);
+        }
         final View icPin = findViewById(R.id.ic_pin);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -169,7 +181,26 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
                 revealView(icPin);
             }
         }, 1000);
+        edit_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlacePicker.this, EditProfileActivity.class);// New activity
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
 
+            }
+        });
+        route_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlacePicker.this, EventSettingsActivity.class);// New activity
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
 
         saveRouteButton.setOnClickListener(new View.OnClickListener() {

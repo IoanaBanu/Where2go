@@ -1,5 +1,6 @@
 package com.example.licenta_ioana_banu;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -21,7 +22,7 @@ import java.util.Date;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText userNameEdt,passwordEdt,passwordVerEdt;
-    private Button loginButton;
+    private Button loginButton,guestLoginButton,registerButton;
     public static User currentUser;
     private User currentUserAug;
     public static void setCurrentUser(User currentUser) {
@@ -45,11 +46,25 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_activity);
 
         // initializing all our variables.
-
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         userNameEdt = findViewById(R.id.idUsernameLogin);
         passwordEdt = findViewById(R.id.idPasswordLogin);
 
         loginButton = findViewById(R.id.idLoginButton);
+        guestLoginButton = findViewById(R.id.idGuestLoginButton);
+
+
+        guestLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentUserAug=new User("guest","guest","guest","guest");
+                setCurrentUser(currentUserAug);
+                Intent intent = new Intent(LoginActivity.this,  PlacePicker.class);// New activity
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+         });
 
 
 
@@ -93,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                                     snapshot.child(username).child("nume").getValue().toString());
 
                             setCurrentUser(currentUserAug);
-                            Intent intent = new Intent(LoginActivity.this, EditProfileActivity.class);// New activity
+                            Intent intent = new Intent(LoginActivity.this,  PlacePicker.class);// New activity
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();

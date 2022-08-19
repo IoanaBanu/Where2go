@@ -92,7 +92,11 @@ public class EditProfileActivity extends AppCompatActivity {
                             currentUser.setPrenume(prenumeEdt.getText().toString());
                             currentUser.setNume(numeEdt.getText().toString());
                             myRef.child(currentUser.getUsername()).setValue(currentUser);
-                            Toast.makeText(EditProfileActivity.this, "Este ", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(EditProfileActivity.this, "Este ", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(EditProfileActivity.this,  PlacePicker.class);// New activity
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
                             return;
                         }
 

@@ -95,7 +95,7 @@ public class EventSettingsActivity extends Activity
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(EventSettingsActivity.this, EventSettingsActivity.class);
+                Intent intent = new Intent(EventSettingsActivity.this, PlacePicker.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

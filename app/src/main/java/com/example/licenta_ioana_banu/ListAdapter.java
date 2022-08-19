@@ -11,13 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -26,6 +30,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.Viewholder> im
 
     private final Context context;
     public static LatLng org,dest;
+    public int i;
 
     public static LatLng getOrg() {
         return org;
@@ -63,9 +68,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.Viewholder> im
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
 
         ListModel model = courseModelArrayList.get(position);
-        holder.courseNameTV.setText(model.getDestName());
-        holder.courseRatingTV.setText("" + model.getDestName());
-        holder.courseIV.setText(model.getDestName());
+        holder.destinatie.setText(model.getDestName());
+        holder.origine.setText("" + model.getOrgName());
+
 
         holder.notInterestedAnymore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +87,47 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.Viewholder> im
 
 
         });
+        holder.deleteRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance("https://licenta-ioana-banu-default-rtdb.firebaseio.com/");
+                DatabaseReference myRef = database.getReference("routes");
+
+                //DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        for (DataSnapshot child : snapshot.getChildren()) {
+                            //Log.i(TAG, String.valueOf(child.getKey())+String.valueOf(i));
+
+
+
+                           if(child.child("orgName").getValue().toString().equals(model.getOrgName()))
+                            {
+                                 myRef.child(child.getKey()).removeValue();
+                            }
+
+                        }
+                           Intent intent = new Intent( ((Activity)context), EventSettingsActivity.class);// New activity
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            ((Activity)context).startActivity(intent);
+                            ((Activity)context).finish();
+                            return;
+                        }
+
+
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+
+
+            }
+
+
+        });
+
 
     }
 
@@ -99,17 +145,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.Viewholder> im
 
     public class Viewholder extends RecyclerView.ViewHolder {
 
-        private final TextView courseNameTV;
-        private final TextView courseRatingTV;
-        private final TextView courseIV;
+        private final TextView destinatie;
+        private final TextView origine;
+
         private final Button notInterestedAnymore;
+        private final Button deleteRoute;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            courseIV = itemView.findViewById(R.id.idIVCourseImage);
-            courseNameTV = itemView.findViewById(R.id.idTVCourseName);
-            courseRatingTV = itemView.findViewById(R.id.idCardviewTiltle);
+
+            destinatie = itemView.findViewById(R.id.idDestinatie);
+            origine = itemView.findViewById(R.id.idOrigin);
             notInterestedAnymore=itemView.findViewById(R.id.notInterestedAnymoreButton);
+            deleteRoute=itemView.findViewById(R.id.idDeleteRouteButton);
 
         }
 
