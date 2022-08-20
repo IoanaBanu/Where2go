@@ -115,7 +115,7 @@
 
                 <com.example.licenta_ioana_banu.utils.CustomButton
                     android:id="@+id/submit_location_button"
-                    android:layout_width="55dp"
+                    android:layout_width="185px"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
@@ -127,7 +127,7 @@
 
                 <com.example.licenta_ioana_banu.utils.CustomButton
                     android:id="@+id/save_route_button"
-                    android:layout_width="55dp"
+                    android:layout_width="185px"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
@@ -139,7 +139,7 @@
 
                 <com.example.licenta_ioana_banu.utils.CustomButton
                     android:id="@+id/route_list_button"
-                    android:layout_width="55dp"
+                    android:layout_width="185px"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
@@ -151,7 +151,7 @@
 
                 <com.example.licenta_ioana_banu.utils.CustomButton
                     android:id="@+id/edit_profile_button"
-                    android:layout_width="55dp"
+                    android:layout_width="185px"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"

@@ -56,8 +56,6 @@ public class LoginActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentUserAug=new User("guest","guest","guest","guest");
-                setCurrentUser(currentUserAug);
                 Intent intent = new Intent(LoginActivity.this,  RegisterActivity.class);// New activity
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
