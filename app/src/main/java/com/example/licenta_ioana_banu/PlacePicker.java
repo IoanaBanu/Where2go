@@ -213,7 +213,7 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
 
                 if (mMarkerPoints.size() >= 2){
 
-                    Route route = new Route(orgName,destName,mOrigin.longitude,mOrigin.latitude,  mDestination.longitude, mDestination.latitude);
+                    Route route = new Route(orgName,destName,currUser.getUsername(),mOrigin.longitude,mOrigin.latitude,  mDestination.longitude, mDestination.latitude);
                 // Write a message to the database
                 FirebaseDatabase database = FirebaseDatabase.getInstance("https://licenta-ioana-banu-default-rtdb.firebaseio.com/");
                 DatabaseReference myRef = database.getReference("routes");

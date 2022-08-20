@@ -2,6 +2,7 @@ package com.example.licenta_ioana_banu;
 
 
 
+import static com.example.licenta_ioana_banu.LoginActivity.getCurrentUser;
 import static com.example.licenta_ioana_banu.utils.FetchAddressIntentService.TAG;
 
 import android.app.Activity;
@@ -35,6 +36,7 @@ public class EventSettingsActivity extends Activity
     private ArrayList<Route> array;
     private TextView event;
     private Button notInterestedButton;
+    private User curUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class EventSettingsActivity extends Activity
        // eventHandler= new DBEventHandler(EventSettingsActivity.this);
         //array = eventHandler.readEvent();
         array =new ArrayList<Route>();
+        curUser=getCurrentUser();
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://licenta-ioana-banu-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("routes");
         //DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
@@ -57,6 +60,7 @@ public class EventSettingsActivity extends Activity
 
                     Route route_aux=new Route(child.child("orgName").getValue().toString(),
                                         child.child("destName").getValue().toString(),
+                                        child.child("owner").getValue().toString(),
                                         Double.parseDouble(child.child("orgLong").getValue().toString()),
                                         Double.parseDouble(child.child("orgLat").getValue().toString()),
                                         Double.parseDouble(child.child("destLong").getValue().toString()),
@@ -64,7 +68,9 @@ public class EventSettingsActivity extends Activity
                                         );
                     //Log.i(TAG, route_aux.getDestName());
                     //Log.i(TAG,"Asta e cu x"+ route_aux.getDestName());
-                    array.add(route_aux);
+                    if(route_aux.getOwner().equals(curUser.getUsername())) {
+                        array.add(route_aux);
+                    }
                 }
                 //Log.i(TAG,"Zide da"+ array.size());
                 eventModelArrayList = new ArrayList<>();

@@ -1,12 +1,13 @@
 package com.example.licenta_ioana_banu;
 
 public class Route {
-    private String orgName,destName;
-    private double orgLong,orgLat,destLong,destLat;
+    private String orgName, destName, owner;
+    private double orgLong, orgLat, destLong, destLat;
 
-    public Route(String orgName, String destName, double orgLong, double orgLat, double destLong, double destLat) {
+    public Route(String orgName, String destName, String owner, double orgLong, double orgLat, double destLong, double destLat) {
         this.orgName = orgName;
         this.destName = destName;
+        this.owner = owner;
         this.orgLong = orgLong;
         this.orgLat = orgLat;
         this.destLong = destLong;
@@ -27,6 +28,14 @@ public class Route {
 
     public void setDestName(String destName) {
         this.destName = destName;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public double getOrgLong() {
