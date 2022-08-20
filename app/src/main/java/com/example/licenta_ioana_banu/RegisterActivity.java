@@ -91,6 +91,10 @@ public class RegisterActivity extends AppCompatActivity {
                         else {
                             myRef.child(username).setValue(user);
                             Toast.makeText(RegisterActivity.this, "Inregistrare cu succes  ", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterActivity.this,  LoginActivity.class);// New activity
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
                         }
                     }
                     @Override

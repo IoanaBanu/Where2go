@@ -52,7 +52,18 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton = findViewById(R.id.idLoginButton);
         guestLoginButton = findViewById(R.id.idGuestLoginButton);
-
+        registerButton=findViewById(R.id.idRegisterButtonLogin);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentUserAug=new User("guest","guest","guest","guest");
+                setCurrentUser(currentUserAug);
+                Intent intent = new Intent(LoginActivity.this,  RegisterActivity.class);// New activity
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         guestLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override

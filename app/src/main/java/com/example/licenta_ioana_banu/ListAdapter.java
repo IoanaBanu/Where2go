@@ -3,9 +3,12 @@ package com.example.licenta_ioana_banu;
 
 
 
+import static com.example.licenta_ioana_banu.utils.FetchAddressIntentService.TAG;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,8 +71,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.Viewholder> im
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
 
         ListModel model = courseModelArrayList.get(position);
-        holder.destinatie.setText(model.getDestName());
-        holder.origine.setText("" + model.getOrgName());
+        holder.destinatie.setText("Destination: "+model.getDestName());
+        holder.origine.setText("Origin: " + model.getOrgName());
 
 
         holder.notInterestedAnymore.setOnClickListener(new View.OnClickListener() {
@@ -98,13 +101,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.Viewholder> im
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         for (DataSnapshot child : snapshot.getChildren()) {
-                            //Log.i(TAG, String.valueOf(child.getKey())+String.valueOf(i));
+                            Log.i(TAG, String.valueOf(child.getKey())+String.valueOf(i)+" si modelul "+model.getOrgName());
 
 
 
                            if(child.child("orgName").getValue().toString().equals(model.getOrgName()))
                             {
                                  myRef.child(child.getKey()).removeValue();
+                                Log.i(TAG, String.valueOf(child.getKey())+"Aia e");
                             }
 
                         }

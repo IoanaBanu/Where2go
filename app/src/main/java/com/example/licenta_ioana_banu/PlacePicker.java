@@ -173,6 +173,8 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
             route_list.setBackgroundColor(Color.GRAY);
             edit_profile.setEnabled(false);
             edit_profile.setBackgroundColor(Color.GRAY);
+            saveRouteButton.setEnabled(false);
+            saveRouteButton.setBackgroundColor(Color.GRAY);
         }
         final View icPin = findViewById(R.id.ic_pin);
         new Handler().postDelayed(new Runnable() {
