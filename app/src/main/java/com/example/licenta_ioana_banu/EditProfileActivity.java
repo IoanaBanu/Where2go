@@ -65,7 +65,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 if(!password.equals(passwordVer))
                 {
-                    Toast.makeText(EditProfileActivity.this, "Parolele nu corespund", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfileActivity.this, "The passwords are not matching", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

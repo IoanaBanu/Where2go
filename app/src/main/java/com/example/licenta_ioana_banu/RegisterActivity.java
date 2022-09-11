@@ -60,13 +60,13 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 if (nume.isEmpty() || prenume.isEmpty() || username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(!password.equals(passwordVer))
                 {
-                    Toast.makeText(RegisterActivity.this, "Parolele nu corespund", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "The passwords are not matching", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -85,12 +85,12 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if (snapshot.hasChild(username)) {
-                            Toast.makeText(RegisterActivity.this, "User ul exista deja  ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "This user already exists!", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         else {
                             myRef.child(username).setValue(user);
-                            Toast.makeText(RegisterActivity.this, "Inregistrare cu succes  ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Registered successfully!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this,  LoginActivity.class);// New activity
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
@@ -103,16 +103,6 @@ public class RegisterActivity extends AppCompatActivity {
                 });
 
 
-               // myRef.child(username).setValue(user);
-                //myRef.child("one").child("username").setValue("papa");
-
-
-
-
-                /*Intent intent = new Intent(RegisterActivity.this, MainActivity.class);// New activity
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();*/
 
             }
         });

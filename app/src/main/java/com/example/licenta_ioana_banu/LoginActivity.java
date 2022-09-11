@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if (snapshot.hasChild(username)&&snapshot.child(username).child("password").getValue().equals(finalPassword)) {
-                            Toast.makeText(LoginActivity.this, "Te-ai logat  ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
                             currentUserAug=new User(username,
                                     snapshot.child(username).child("password").getValue().toString(),
                                     snapshot.child(username).child("prenume").getValue().toString(),
@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else {
                            // myRef.child(username).setValue(user);
-                            Toast.makeText(LoginActivity.this, "Credentiale incorecte ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override
@@ -134,16 +134,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
 
-                // myRef.child(username).setValue(user);
-                //myRef.child("one").child("username").setValue("papa");
-
-
-
-
-                /*Intent intent = new Intent(RegisterActivity.this, MainActivity.class);// New activity
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();*/
 
             }
         });

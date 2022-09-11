@@ -34,7 +34,7 @@ public class EventSettingsActivity extends Activity
     private ArrayList<ListModel> eventModelArrayList;
     //private DBEventHandler eventHandler;
     private ArrayList<Route> array;
-    private TextView event;
+    private TextView event,signOut;
     private Button notInterestedButton;
     private User curUser;
 
@@ -44,7 +44,7 @@ public class EventSettingsActivity extends Activity
         setContentView(R.layout.event_settings);
         eventRV = findViewById(R.id.idRVEvent);
         event=findViewById(R.id.textView14);
-
+        signOut=findViewById(R.id.textView15);
        // eventHandler= new DBEventHandler(EventSettingsActivity.this);
         //array = eventHandler.readEvent();
         array =new ArrayList<Route>();
@@ -102,6 +102,16 @@ public class EventSettingsActivity extends Activity
             public void onClick(View v) {
 
                 Intent intent = new Intent(EventSettingsActivity.this, PlacePicker.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(EventSettingsActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

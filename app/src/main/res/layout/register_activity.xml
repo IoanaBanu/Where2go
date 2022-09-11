@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#030231">
+    android:background="#4db8ff">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -137,10 +137,10 @@
         android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idPasswordRegister"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.312" />
 
     <Button
         android:id="@+id/idRegisterButton"
@@ -151,7 +151,7 @@
         android:textAppearance="@style/the_place_t"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.520"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idPasswordVerRegister"
         app:layout_constraintVertical_bias="0.414" />

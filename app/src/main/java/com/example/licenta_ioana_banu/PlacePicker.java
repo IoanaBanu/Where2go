@@ -223,7 +223,7 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
                     public void onDataChange(DataSnapshot snapshot) {
 
                             myRef.child(orgName+"-- spre --"+destName).setValue(route);
-                            Toast.makeText(PlacePicker.this, "Ruta Salvata ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PlacePicker.this, "Saved route", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -233,7 +233,7 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
                 });}
                 else
                 {
-                    Toast.makeText(PlacePicker.this, "Ruta Incompleta  ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PlacePicker.this, "The rute is incomplete", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -657,7 +657,7 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
             // Setting the position of the marker
             options2.position(mOrigin);
             options.position(mDestination);
-            Log.i(TAG,"orogin :"+mOrigin.latitude);
+            Log.i(TAG,"origin :"+mOrigin.latitude);
             Log.i(TAG,"dest :"+getDest().toString());
             /**
              * For the start location, the color of marker is GREEN and
@@ -684,7 +684,7 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
         } else {
-            Toast.makeText(this, "No permision", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "No permission", Toast.LENGTH_LONG).show();
         }
 
         //enable location button
@@ -808,7 +808,7 @@ public class PlacePicker extends AppCompatActivity implements OnMapReadyCallback
                                 mFusedLocationProviderClient.requestLocationUpdates(locationRequest, null);
                             }
                         } else {
-                            Toast.makeText(PlacePicker.this, "Unable to get last location ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PlacePicker.this, "Unable to get last location", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

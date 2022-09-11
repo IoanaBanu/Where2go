@@ -19,14 +19,8 @@
         android:theme="@style/Theme.Licenta_ioana_banu">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyDO72H2WTEyRIjBrF6dKdEqCYuhjtecdrE" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="maps"
-            android:exported="true">
-
-        </activity>
         <activity
             android:name=".PlacePicker"
             android:label="maps"
@@ -47,11 +41,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".Test"
-            android:exported="true">
-
         </activity>
 
         <activity
